@@ -40,7 +40,7 @@ B3: Tạo bảng trong database `redash` (đã tạo)
 
 B4: Chạy redash:
 
-* docker-compose up
+* docker-compose up -d
 
 B4.2: Stop
 * docker-compose down
