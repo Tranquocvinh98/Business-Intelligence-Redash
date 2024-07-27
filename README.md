@@ -63,6 +63,10 @@ Lỗi 2: Không kết nối được redis (cannot connect redis refuse)
 
 
 ### Dashboard Demo
+man hinh login
 ![Mô tả ảnn](images/anh1.png)
+man hinh login 1
+![Mô tả ảnn](images/anh1.png)
+
 
 
