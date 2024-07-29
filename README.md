@@ -63,10 +63,19 @@ Lỗi 2: Không kết nối được redis (cannot connect redis refuse)
 
 
 ### Dashboard Demo
-man hinh login
-![Mô tả ảnn](images/anh1.png)
-man hinh login 1
-![Mô tả ảnn](images/anh1.png)
+Đăng nhập vào localhost
+![Mô tả ảnn](images/Đăng nhập.png)
+Bật pgadmin
+![Mô tả ảnn](images/Bật pgadmin.png)
+Tạo data soure
+![Mô tả ảnn](images/Tạo data soure.png)
+Liên kết với database
+![Mô tả ảnn](images/Liên kết với database.png)
+Truy cập query
+![Mô tả ảnn](images/Truy cập query.png)
+Truy cập dashboards
+![Mô tả ảnn](images/Truy cập dashboards.png)
+
 
 
 
