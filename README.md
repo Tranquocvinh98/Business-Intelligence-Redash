@@ -57,12 +57,6 @@ Lỗi 2: Không kết nối được redis (cannot connect redis refuse)
 * sửa `supervised systemd`
 
 ### Dashboard Demo
-![Dashboard Redash](images/dash_board1.png)
-
-![Dashboard Redash](images/dash_board2.png)
-
-
-### Dashboard Demo
 Đăng nhập vào localhost:
 ![Mô tả ảnn](images/dangnhap_localhost.png)
 Tạo data source:
