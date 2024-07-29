@@ -64,17 +64,17 @@ Lỗi 2: Không kết nối được redis (cannot connect redis refuse)
 
 ### Dashboard Demo
 Đăng nhập vào localhost
-![Mô tả ảnn](images/Đăng nhập.png)
+![Mô tả ảnn](images/dangnhap_localhost.png)
 Bật pgadmin
-![Mô tả ảnn](images/Bật pgadmin.png)
+![Mô tả ảnn](images/bat_pgadmin.png)
 Tạo data soure
-![Mô tả ảnn](images/Tạo data soure.png)
+![Mô tả ảnn](images/tao_datasoure.png)
 Liên kết với database
-![Mô tả ảnn](images/Liên kết với database.png)
+![Mô tả ảnn](images/lienketvoidatabase.png)
 Truy cập query
-![Mô tả ảnn](images/Truy cập query.png)
+![Mô tả ảnn](images/truycap_query.png)
 Truy cập dashboards
-![Mô tả ảnn](images/Truy cập dashboards.png)
+![Mô tả ảnn](images/truycap_dashboards.png)
 
 
 
