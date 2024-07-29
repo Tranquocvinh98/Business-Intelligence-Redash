@@ -1,51 +1,47 @@
 # Business-Intelligence-Dashboard
+Redash là tool giúp truy vấn, trực quan hoá dữ liệu từ các nguồn dữ liệu khác nhau, cụ thể:
+- Kết nối đến các nguồn dữ liệu SQL và NoSQL, chẳng hạn Postgresql, MySql, Mongo,...
+- Truy vấn dữ liệu, chế độ lập lịch giúp tự động refresh truy vấn.
+- Trực quan hoá dữ liệu và tạo báo cáo.
+- Phân quyền người dùng truy cập đến nguồn dữ liệu và báo cáo.
+- Customize: Kết nối đến các API.
 
 ## Cài đặt REDASH - TOOL VISUALIZE
-
-### Cài đặt Redis
-* curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
-* echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
-* sudo apt-get update
-* sudo apt-get install redis
-* Tham khảo: https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-redis-on-ubuntu-22-04
-
+Lưu ý: Redis, Database Postgresql có thể cài đặt bằng docker
+### Cài đặt Redis 
+* `brew install redis`
 ### Cài đặt Database
-B1: Cài đặt database postgresql cho ubuntu 20.04
-* sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
-* sudo wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-* sudo apt-get update
-* sudo apt-get -y install postgresql-14
-* Tham khảo: https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart
+B1: Cài đặt database postgresql cho Macos
+* `brew install postgresql`
 
-B2: Tạo database `redash`
+B2: Tạo database `redash`, phân quyền người dùng cho Table
 * sudo -u postgres psql
 * CREATE DATABASE redash;
 * CREATE USER admin WITH PASSWORD 'admin123456';
 * GRANT ALL PRIVILEGES ON DATABASE redash TO admin;
 
-### Cài đặt redash (môi trường test)
-B1: Tạo/sửa file môi trường .env
+### Cài đặt redash (Sử dụng Docker)
+B1: Clone Project 
+* `git clone https://github.com/Tranquocvinh98/Business-Intelligence-Redash.git`
 
-* Địa chỉ database, địa chỉ redis theo mẫu: ipconfig getifaddr en0
-* Database: `postgresql://***:*****@*******:5432/redash`
-* Redis: `redis://*********:6379/0`
+B2: Tạo/sửa file môi trường .env
+* Địa chỉ database, địa chỉ redis theo mẫu
+* Database: `postgresql://<username>:<password>@<hostname>:5432/redash`
+* Redis: `redis://<hostname>:6379/0`
 
-B2: Tạo image redash sử dụng dockerfile (đã tạo)
+B3: Tạo image redash sử dụng dockerfile
+* `docker build -t redash:version2 -f Dockerfile .`
 
-* docker build -t redash:version2 -f Dockerfile .
+B4: Tạo bảng trong database `redash` (đã tạo)
+* `docker-compose run --rm server create_db`
 
-B3: Tạo bảng trong database `redash` (đã tạo)
+B5: Chạy redash:
+* `docker-compose up -d`
 
-* docker-compose run --rm server create_db
+B6: Địa chỉ giao diện redash: ip:5001
 
-B4: Chạy redash:
-
-* docker-compose up
-
-B4.2: Stop
-* docker-compose down
-
-B5: Địa chỉ giao diện redash: ip:5001
+B7: Dừng service
+* `docker-compose down`
 
 ### Các lỗi thường gặp trong cài đặt
 
@@ -59,7 +55,11 @@ Lỗi 2: Không kết nối được redis (cannot connect redis refuse)
 * `sudo service redis-server status`
 * `sudo vim /etc/redis/redis.conf`
 * sửa `supervised systemd`
-* Lưu ý: Có thể cài đặt redis bằng docker
+
+### Dashboard Demo
+![Dashboard Redash](images/dash_board1.png)
+
+![Dashboard Redash](images/dash_board2.png)
 
 
 ### Dashboard Demo
